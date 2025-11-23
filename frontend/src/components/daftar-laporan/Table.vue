@@ -1,6 +1,10 @@
 <template>
-  <h1 class="text-2xl font-bold mb-4 transition-colors duration-300"
-      :class="themeStore.isDark ? 'bg-neutral-900' : 'bg-gray-50'">Daftar Laporan</h1>  
+  <h1
+    class="text-2xl font-bold mb-4 transition-colors duration-300"
+    :class="themeStore.isDark ? 'bg-neutral-900' : 'bg-gray-50'"
+  >
+    Daftar Laporan
+  </h1>
   <div class="flex justify-between items-center mb-4">
     <n-button
       class="!bg-[#F03E3E] hover:!bg-[#D12B2B] !w-[120px] !text-white transition-transform transform active:scale-95"
@@ -42,7 +46,7 @@ import { onMounted, reactive, defineComponent, ref, h } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { PhCheck, PhTrash, PhMagnifyingGlass } from "@phosphor-icons/vue";
 import { NImage } from "naive-ui";
-import { useThemeStore } from "@/stores/ThemeMode";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 
 export default defineComponent({
   name: "TableLaporan",

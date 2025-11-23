@@ -137,10 +137,10 @@
 import { defineComponent, ref, onMounted, watch } from "vue";
 import { PhCaretDoubleLeft, PhFileArrowUp } from "@phosphor-icons/vue";
 import { useMessage } from "naive-ui";
-import Api from "@/services/Api";
+import Api from "@/services/Api.js";
 import RichTextEditor from "@/components/ui/RichTextEditor.vue";
-import { useAuthStore } from "@/stores/auth";
-import { useThemeStore } from "@/stores/ThemeMode";
+import { useAuthStore } from "@/stores/Auth.js";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 
 const loading = ref(false);
 const loadingSubmit = ref(false);

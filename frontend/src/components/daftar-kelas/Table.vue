@@ -1,7 +1,13 @@
 <template>
-  <h1 class="text-2xl font-bold mb-4 transition-colors duration-300"
-      :class="themeStore.isDark ? 'bg-neutral-900' : 'bg-gray-50'">Daftar Kelas</h1>  
- <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-4">
+  <h1
+    class="text-2xl font-bold mb-4 transition-colors duration-300"
+    :class="themeStore.isDark ? 'bg-neutral-900' : 'bg-gray-50'"
+  >
+    Daftar Kelas
+  </h1>
+  <div
+    class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-4"
+  >
     <div class="flex gap-2">
       <n-button
         type="primary"
@@ -35,7 +41,7 @@
       </n-button>
     </div>
 
-  <n-input
+    <n-input
       v-model:value="searchKeyword"
       placeholder="Cari Data Daftar Kelas..."
       class="!w-[258px]"
@@ -53,7 +59,7 @@
     :columns="columns"
     :loading="loading"
     :pagination="pagination"
-    @refresh="fetchData"    
+    @refresh="fetchData"
     @update:sorter="handleSorterChange"
     v-model:checked-row-keys="selectedRows"
     :row-key="(row) => row.daftar_kelas_id"
@@ -61,7 +67,14 @@
 </template>
 
 <script>
-import { defineComponent, reactive, ref, onMounted, watch, computed } from "vue";
+import {
+  defineComponent,
+  reactive,
+  ref,
+  onMounted,
+  watch,
+  computed,
+} from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { NTag, NInput, NIcon, NButton } from "naive-ui";
 import {
@@ -70,10 +83,10 @@ import {
   PhPencilSimple,
   PhMagnifyingGlass,
 } from "@phosphor-icons/vue";
-import { useThemeStore } from "@/stores/ThemeMode";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 
 export default defineComponent({
-  name: 'TableKelas',
+  name: "TableKelas",
   props: {
     data: {
       type: Array,
@@ -83,15 +96,15 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-   selectedRows: {
-    type: Array,
-    default: () => [],
-  }
+    selectedRows: {
+      type: Array,
+      default: () => [],
+    },
   },
   setup(props, { emit }) {
     const loading = ref(true);
     const tableRef = ref(null);
-    const searchKeyword = ref('')
+    const searchKeyword = ref("");
     const selectedRows = ref([...props.selectedRows]);
     const currentSortState = reactive({});
     const route = useRoute();
@@ -102,9 +115,9 @@ export default defineComponent({
       { type: "selection", width: 50 },
       {
         title: "No",
-         key: "created_at",
+        key: "created_at",
         width: 65,
-         sorter: (a, b) => new Date(b.created_at) - new Date(a.created_at),
+        sorter: (a, b) => new Date(b.created_at) - new Date(a.created_at),
         render(_, index) {
           return (pagination.page - 1) * pagination.pageSize + index + 1;
         },
@@ -115,13 +128,13 @@ export default defineComponent({
         title: "Jurusan",
         key: "jurusan",
         width: 100,
-        filterMultiple: false, 
+        filterMultiple: false,
         filterOptions: [
-          { label: 'IPA', value: 'IPA' },
-          { label: 'IPS', value: 'IPS' },
-          { label: 'Bahasa', value: 'BHS'},
+          { label: "IPA", value: "IPA" },
+          { label: "IPS", value: "IPS" },
+          { label: "Bahasa", value: "BHS" },
         ],
-        filter: (value, row) => row.jurusan === value, 
+        filter: (value, row) => row.jurusan === value,
       },
       {
         title: "Tingkat",
@@ -141,7 +154,7 @@ export default defineComponent({
         title: "Wali Kelas",
         key: "wali_kelas",
         width: 200,
-        render: (row) => row.wali_kelas?.nama || '-'
+        render: (row) => row.wali_kelas?.nama || "-",
       },
     ]);
 
@@ -150,10 +163,10 @@ export default defineComponent({
       pageSize: Number(route.query.pageSize) || 10,
       showSizePicker: true,
       pageSizes: [10, 25, 50, 100],
-       pageSizes: [10, 25, 50, 100],
-        prefix({ itemCount }) {
-        return `Total Jumlah Kelas: ${itemCount}`
-      },     
+      pageSizes: [10, 25, 50, 100],
+      prefix({ itemCount }) {
+        return `Total Jumlah Kelas: ${itemCount}`;
+      },
       onChange: (page) => {
         pagination.page = page;
         router.push({ query: { ...route.query, page } });
@@ -166,30 +179,32 @@ export default defineComponent({
     });
 
     const filteredData = computed(() => {
-      if (!searchKeyword.value) return props.data
+      if (!searchKeyword.value) return props.data;
 
       const keyword = searchKeyword.value.toLowerCase();
-      return props.data.filter(item =>
-        item.nama_kelas.toLowerCase().includes(keyword) ||
-    (item.wali_kelas?.nama && item.wali_kelas.nama.toLowerCase().includes(keyword)) 
-      )
-    })
+      return props.data.filter(
+        (item) =>
+          item.nama_kelas.toLowerCase().includes(keyword) ||
+          (item.wali_kelas?.nama &&
+            item.wali_kelas.nama.toLowerCase().includes(keyword))
+      );
+    });
 
     const handleSorterChange = (sorter) => {
       Object.assign(currentSortState, sorter);
     };
 
-     const updateSelectedRows = (val) => {
-    selectedRows.value = val;
-    emit('update:selectedRows', val);
-  };
+    const updateSelectedRows = (val) => {
+      selectedRows.value = val;
+      emit("update:selectedRows", val);
+    };
 
-     const handleEditSelected = () => {
+    const handleEditSelected = () => {
       if (selectedRows.value.length === 1) {
         const selectedRow = props.data.find(
           (row) => row.daftar_kelas_id === selectedRows.value[0]
         );
-        emit('edit-data', selectedRow);
+        emit("edit-data", selectedRow);
       }
     };
 
@@ -199,9 +214,12 @@ export default defineComponent({
       }
     };
 
-    watch(() => props.selectedRows, (val) => {
-    selectedRows.value = [...val];
-  });
+    watch(
+      () => props.selectedRows,
+      (val) => {
+        selectedRows.value = [...val];
+      }
+    );
 
     onMounted(() => {
       setTimeout(() => {
@@ -212,14 +230,14 @@ export default defineComponent({
     return {
       PhPlus,
       PhTrash,
-      PhPencilSimple,      
+      PhPencilSimple,
       PhMagnifyingGlass,
       columns,
       loading,
       tableRef,
       themeStore,
-      pagination,   
-      filteredData,   
+      pagination,
+      filteredData,
       selectedRows,
       searchKeyword,
       updateSelectedRows,

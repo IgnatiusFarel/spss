@@ -232,10 +232,4 @@ const handleLogin = async () => {
     loading.value = false;
   }
 };
-
-// onMounted(() => {
-//   setTimeout(() => {
-//     showAlert.value = false;
-//   }, 3000)
-// })
 </script>

@@ -1,10 +1,12 @@
 <template>
-  <div class="max-w-xl mx-auto p-6 min-h-screen transition-colors duration-300"
-       :class="themeStore.isDark ? 'bg-neutral-900' : 'bg-white'">
+  <div
+    class="max-w-xl mx-auto p-6 min-h-screen transition-colors duration-300"
+    :class="themeStore.isDark ? 'bg-neutral-900' : 'bg-white'"
+  >
     <n-button
       text
       type="primary"
-     class="!mb-4 !text-sm !underline transition-colors duration-300"
+      class="!mb-4 !text-sm !underline transition-colors duration-300"
       :class="themeStore.isDark ? '!text-blue-400' : '!text-gray-800'"
       @click="$emit('back-to-table')"
     >
@@ -14,12 +16,18 @@
       Kembali ke Halaman Daftar Pengurus
     </n-button>
 
-    <div class="rounded-lg p-6 border transition-all duration-300"
-         :class="themeStore.isDark 
-           ? 'bg-neutral-800 border-neutral-700' 
-           : 'bg-white border-gray-200'">
-      <h1 class="text-3xl font-bold mb-8 text-center transition-colors duration-300"
-          :class="themeStore.isDark ? 'text-white' : 'text-gray-900'">
+    <div
+      class="rounded-lg p-6 border transition-all duration-300"
+      :class="
+        themeStore.isDark
+          ? 'bg-neutral-800 border-neutral-700'
+          : 'bg-white border-gray-200'
+      "
+    >
+      <h1
+        class="text-3xl font-bold mb-8 text-center transition-colors duration-300"
+        :class="themeStore.isDark ? 'text-white' : 'text-gray-900'"
+      >
         Tambah Data Pengurus
       </h1>
 
@@ -180,17 +188,26 @@
       </n-form>
 
       <div class="my-2 flex items-center">
-        <div class="flex-1 border-t transition-colors duration-300"
-             :class="themeStore.isDark ? 'border-neutral-600' : 'border-gray-300'"></div>
-        <span class="px-4 text-sm transition-colors duration-300"
-              :class="themeStore.isDark ? 'text-gray-400' : 'text-gray-500'">atau</span>
-        <div class="flex-1 border-t transition-colors duration-300"
-             :class="themeStore.isDark ? 'border-neutral-600' : 'border-gray-300'"></div>
+        <div
+          class="flex-1 border-t transition-colors duration-300"
+          :class="themeStore.isDark ? 'border-neutral-600' : 'border-gray-300'"
+        ></div>
+        <span
+          class="px-4 text-sm transition-colors duration-300"
+          :class="themeStore.isDark ? 'text-gray-400' : 'text-gray-500'"
+          >atau</span
+        >
+        <div
+          class="flex-1 border-t transition-colors duration-300"
+          :class="themeStore.isDark ? 'border-neutral-600' : 'border-gray-300'"
+        ></div>
       </div>
 
       <div class="space-y-4">
-        <h3 class="font-medium transition-colors duration-300"
-            :class="themeStore.isDark ? 'text-gray-200' : 'text-gray-700'">
+        <h3
+          class="font-medium transition-colors duration-300"
+          :class="themeStore.isDark ? 'text-gray-200' : 'text-gray-700'"
+        >
           Import dari Dokumen
         </h3>
         <n-upload
@@ -203,9 +220,11 @@
         >
           <n-upload-dragger
             class="border-2 border-dashed rounded-md transition-all duration-300 p-6"
-            :class="themeStore.isDark 
-              ? 'border-neutral-600 hover:border-blue-500 hover:bg-neutral-700' 
-              : 'border-gray-400 hover:border-blue-500 hover:bg-gray-50'"
+            :class="
+              themeStore.isDark
+                ? 'border-neutral-600 hover:border-blue-500 hover:bg-neutral-700'
+                : 'border-gray-400 hover:border-blue-500 hover:bg-gray-50'
+            "
           >
             <div class="py-6 flex flex-col items-center justify-center">
               <img
@@ -213,16 +232,22 @@
                 alt="Excel Icon"
                 class="w-12 h-12"
               />
-              <p class="transition-colors duration-300"
-                 :class="themeStore.isDark ? 'text-gray-300' : 'text-gray-600'">
+              <p
+                class="transition-colors duration-300"
+                :class="themeStore.isDark ? 'text-gray-300' : 'text-gray-600'"
+              >
                 Drag file ke sini atau
-                <span class="font-medium transition-colors duration-300"
-                      :class="themeStore.isDark ? 'text-blue-400' : 'text-gray-800'">
+                <span
+                  class="font-medium transition-colors duration-300"
+                  :class="themeStore.isDark ? 'text-blue-400' : 'text-gray-800'"
+                >
                   klik untuk upload
                 </span>
               </p>
-              <p class="text-sm mt-1 transition-colors duration-300"
-                 :class="themeStore.isDark ? 'text-gray-400' : 'text-gray-500'">
+              <p
+                class="text-sm mt-1 transition-colors duration-300"
+                :class="themeStore.isDark ? 'text-gray-400' : 'text-gray-500'"
+              >
                 Format yang didukung: .CSV, .XLS, .XLSX
               </p>
             </div>
@@ -237,17 +262,25 @@
           status="success"
           class="w-full"
         />
-        <div class="border-2 rounded-[8px] p-4 transition-all duration-300"
-             :class="themeStore.isDark 
-               ? 'border-neutral-600 bg-neutral-800' 
-               : 'border-gray-200 bg-gray-50'">
+        <div
+          class="border-2 rounded-[8px] p-4 transition-all duration-300"
+          :class="
+            themeStore.isDark
+              ? 'border-neutral-600 bg-neutral-800'
+              : 'border-gray-200 bg-gray-50'
+          "
+        >
           <img src="@/assets/excel.svg" alt="Excel Icon" class="w-6 mb-2" />
-          <p class="font-extrabold transition-colors duration-300"
-             :class="themeStore.isDark ? 'text-white' : 'text-gray-900'">
+          <p
+            class="font-extrabold transition-colors duration-300"
+            :class="themeStore.isDark ? 'text-white' : 'text-gray-900'"
+          >
             Template
           </p>
-          <p class="mb-3 transition-colors duration-300"
-             :class="themeStore.isDark ? 'text-gray-300' : 'text-gray-700'">
+          <p
+            class="mb-3 transition-colors duration-300"
+            :class="themeStore.isDark ? 'text-gray-300' : 'text-gray-700'"
+          >
             Download template untuk memudahkan melakukan import dokumen data
             daftar pengurus.
           </p>
@@ -255,7 +288,7 @@
             ghost
             class="shadow-md hover:shadow-lg transition-shadow duration-200"
             :loading="loadingDownload"
-            :disabled="loadingDownload"            
+            :disabled="loadingDownload"
             @click="handleDownload"
           >
             <div class="flex items-center gap-2">
@@ -265,7 +298,9 @@
                 class="transition-colors duration-300"
                 :class="themeStore.isDark ? 'text-gray-400' : 'text-gray-500'"
               />
-              <span class="font-bold">{{ loadingDownload ? "Mendownload..." : "Download" }}</span>
+              <span class="font-bold">{{
+                loadingDownload ? "Mendownload..." : "Download"
+              }}</span>
             </div>
           </n-button>
         </div>
@@ -278,8 +313,8 @@
 import { ref, watch, onMounted } from "vue";
 import { PhCaretDoubleLeft, PhFileArrowDown } from "@phosphor-icons/vue";
 import { useMessage } from "naive-ui";
-import { useThemeStore } from "@/stores/ThemeMode";
-import Api from "@/services/Api";
+import { useThemeStore } from "@/stores/ThemeMode.js";
+import Api from "@/services/Api.js";
 import dayjs from "dayjs";
 import { saveAs } from "file-saver";
 

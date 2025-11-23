@@ -48,7 +48,7 @@ import Presensi from "./presensi/PresensiSiswa.vue";
 import Riwayat from "./riwayat/RiwayatPresensiSiswa.vue";
 import Berita from "./berita/BeritaView.vue";
 import Api from "@/services/Api.js";
-import { useThemeStore } from "@/stores/ThemeMode";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 
 const activeTab = ref("presensi");
 const presensiAktif = ref(null);

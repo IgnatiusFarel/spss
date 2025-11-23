@@ -1,6 +1,10 @@
 <template>
-  <h1 class="text-2xl font-bold mb-4 transition-colors duration-300"
-      :class="themeStore.isDark ? 'bg-neutral-900' : 'bg-gray-50'">Daftar Berita</h1>  
+  <h1
+    class="text-2xl font-bold mb-4 transition-colors duration-300"
+    :class="themeStore.isDark ? 'bg-neutral-900' : 'bg-gray-50'"
+  >
+    Daftar Berita
+  </h1>
   <div
     class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-4"
   >
@@ -80,7 +84,7 @@ import {
   PhPencilSimple,
   PhMagnifyingGlass,
 } from "@phosphor-icons/vue";
-import { useThemeStore } from "@/stores/ThemeMode";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 
 export default defineComponent({
   name: "TableBerita",
@@ -128,7 +132,7 @@ export default defineComponent({
         width: 100,
         render(row) {
           const src = `${baseUrl}/storage/${row.thumbnail}`;
-           console.log('Thumbnail URL:', src);
+          console.log("Thumbnail URL:", src);
           return h(NImage, { src, width: 100 });
         },
       },

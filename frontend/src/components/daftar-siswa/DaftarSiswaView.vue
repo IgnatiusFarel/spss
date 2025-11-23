@@ -4,8 +4,8 @@
     :loading="loading"
     :data="dataTable"
     :editData="editData"
-    :selectedRows="selectedRows"   
-    @update:selectedRows="val => selectedRows = val"
+    :selectedRows="selectedRows"
+    @update:selectedRows="(val) => (selectedRows = val)"
     @add-data="showView('TambahData')"
     @back-to-table="showView('Table')"
     @refresh="fetchData"
@@ -13,7 +13,7 @@
     @delete-data="confirmDelete"
   />
 
-   <n-modal
+  <n-modal
     v-model:show="showModal"
     preset="dialog"
     title="Konfirmasi Hapus"
@@ -21,27 +21,27 @@
     positive-text="Ya, Hapus"
     negative-text="Batal"
     @positive-click="handleDelete"
-    @negative-click="() => showModal = false"
+    @negative-click="() => (showModal = false)"
   />
 </template>
 
 <script setup>
-import { ref, shallowRef, onMounted } from 'vue';
-import { useMessage } from 'naive-ui';
-import Table from './Table.vue';
-import TambahData from './TambahData.vue';
-import EditData from './EditData.vue'
-import Api from "@/services/Api.js"
+import { ref, shallowRef, onMounted } from "vue";
+import { useMessage } from "naive-ui";
+import Table from "./Table.vue";
+import TambahData from "./TambahData.vue";
+import EditData from "./EditData.vue";
+import Api from "@/services/Api.js";
 
 const views = { Table, TambahData, EditData };
 const currentView = shallowRef(Table);
 const editData = ref(null);
 const loading = ref(false);
-const dataTable = ref([])
+const dataTable = ref([]);
 const selectedRows = ref([]);
 
 const showModal = ref(false);
-const deleteTarget = ref(null); 
+const deleteTarget = ref(null);
 const message = useMessage();
 
 const showView = (viewName) => {
@@ -50,7 +50,7 @@ const showView = (viewName) => {
 
 const showEditForm = (data) => {
   editData.value = data;
-  showView('EditData');
+  showView("EditData");
 };
 
 const confirmDelete = (idOrIds) => {
@@ -63,18 +63,18 @@ const handleDelete = async () => {
   loading.value = true;
 
   try {
-    if (Array.isArray(deleteTarget.value)) {      
-      await Api.delete('/daftar-siswa', {
+    if (Array.isArray(deleteTarget.value)) {
+      await Api.delete("/daftar-siswa", {
         data: { ids: deleteTarget.value },
       });
-    } else {      
+    } else {
       await Api.delete(`/daftar-siswa/${deleteTarget.value}`);
     }
-    message.success('Data siswa berhasil dihapus!');
+    message.success("Data siswa berhasil dihapus!");
     await fetchData();
     selectedRows.value = [];
   } catch (error) {
-    message.error('Data siswa gagal dihapus!');
+    message.error("Data siswa gagal dihapus!");
     console.error(error);
   } finally {
     loading.value = false;
@@ -82,20 +82,19 @@ const handleDelete = async () => {
 };
 
 const fetchData = async () => {
-  loading.value =  true; 
+  loading.value = true;
   try {
-    const response = await Api.get('/daftar-siswa')
+    const response = await Api.get("/daftar-siswa");
     dataTable.value = response.data.data;
     selectedRows.value = [];
-  } catch (error) { 
-    console.log(error)
-  } finally { 
-    loading.value = false; 
-  } 
-}
+  } catch (error) {
+    console.log(error);
+  } finally {
+    loading.value = false;
+  }
+};
 
 onMounted(() => {
   fetchData();
-})
-
+});
 </script>

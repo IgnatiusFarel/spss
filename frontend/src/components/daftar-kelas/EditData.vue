@@ -98,9 +98,9 @@
 <script setup>
 import { defineComponent, ref, onMounted, watch } from "vue";
 import { PhCaretDoubleLeft } from "@phosphor-icons/vue";
-import Api from "@/services/Api";
+import Api from "@/services/Api.js";
 import { useMessage } from "naive-ui";
-import { useThemeStore } from "@/stores/ThemeMode";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 
 const loading = ref(false);
 const loadingSubmit = ref(false);

@@ -85,7 +85,7 @@ import {
 import { useRoute, useRouter } from "vue-router";
 import { NTag, useMessage, NImage } from "naive-ui";
 import { PhMagnifyingGlass, PhPlay } from "@phosphor-icons/vue";
-import Api from "@/services/Api";
+import Api from "@/services/Api.js";
 import dayjs from "dayjs";
 
 export default defineComponent({

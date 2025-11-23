@@ -83,7 +83,7 @@
               <n-avatar
                 round
                 size="small"
-                src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                src="https://i.pinimg.com/474x/c5/54/d1/c554d19c78fcbfa0cf106c7b7809d0b2.jpg"
                 alt="avatar"
               />
               <div class="flex flex-col" v-show="!isCollapsed">
@@ -119,7 +119,7 @@
           <div class="flex flex-col items-center gap-3 p-4">
             <n-image
               width="100"
-              src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
+              src="https://i.pinimg.com/474x/c5/54/d1/c554d19c78fcbfa0cf106c7b7809d0b2.jpg"
               class="rounded-full"
             />
             <div class="text-center">

@@ -54,7 +54,7 @@
           round
           alt="avatar"
           size="small"
-          src="https://randomuser.me/api/portraits/men/1.jpg"
+          src="https://i.pinimg.com/474x/64/79/ac/6479acfe0cb87ed80139da9d5d9c85f5.jpg"
         />
       </div>
     </n-dropdown>
@@ -68,7 +68,7 @@
       <div class="flex flex-col items-center gap-3 p-4">
         <n-image
           width="100"
-          src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
+          src="https://i.pinimg.com/474x/64/79/ac/6479acfe0cb87ed80139da9d5d9c85f5.jpg"          
           class="rounded-full"
         />
         <div class="text-center">

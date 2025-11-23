@@ -15,7 +15,7 @@
 <script setup>
 import { NCard } from "naive-ui";
 import { ref, onMounted } from "vue";
-import Api from "@/services/Api";
+import Api from "@/services/Api.js";
 
 const loading = ref(false);
 const total = ref(0);

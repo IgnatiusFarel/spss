@@ -193,10 +193,10 @@
 <script setup>
 import { defineComponent, ref, watch, onMounted } from "vue";
 import { PhCaretDoubleLeft, PhFileArrowUp } from "@phosphor-icons/vue";
-import Api from "@/services/Api";
+import Api from "@/services/Api.js";
 import dayjs from "dayjs";
 import { useMessage } from "naive-ui";
-import { useThemeStore } from "@/stores/ThemeMode";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 
 const loading = ref(false);
 const loadingSubmit = ref(false);

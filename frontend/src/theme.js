@@ -97,37 +97,35 @@ export const lightThemeOverrides = {
     primaryColorHover: '#5393f9',
     primaryColorPressed: '#1c6dd0',
     primaryColorSuppl: '#2F80ED',
-    
-    // Light mode specific colors
+      
     bodyColor: '#ffffff',
     cardColor: '#ffffff',
     modalColor: '#ffffff',
     popoverColor: '#ffffff',
     tableColor: '#ffffff',
     
-    borderColor: '#e5e7eb', // gray-200
-    dividerColor: '#e5e7eb', // gray-200
+    borderColor: '#e5e7eb', 
+    dividerColor: '#e5e7eb',
     
-    textColorBase: '#111827', // gray-900
-    textColor1: '#111827', // gray-900
-    textColor2: '#374151', // gray-700
-    textColor3: '#6b7280', // gray-500
-    textColorDisabled: '#9ca3af', // gray-400
+    textColorBase: '#111827', 
+    textColor1: '#111827', 
+    textColor2: '#374151', 
+    textColor3: '#6b7280', 
+    textColorDisabled: '#9ca3af',
     
     inputColor: '#ffffff',
-    inputColorDisabled: '#f9fafb', // gray-50
+    inputColorDisabled: '#f9fafb',
   },
   Button: {
     colorPrimary: '#2F80ED',
     colorHoverPrimary: '#5393f9',
     colorPressedPrimary: '#1c6dd0',
     textColorPrimary: '#ffffff',
-    
-    // Secondary button colors for light mode
-    colorSecondary: '#f3f4f6', // gray-100
-    colorHoverSecondary: '#e5e7eb', // gray-200
-    colorPressedSecondary: '#d1d5db', // gray-300
-    textColorSecondary: '#374151', // gray-700
+        
+    colorSecondary: '#f3f4f6', 
+    colorHoverSecondary: '#e5e7eb',
+    colorPressedSecondary: '#d1d5db',
+    textColorSecondary: '#374151', 
     
     heightMedium: '48px',
     borderRadiusMedium: '12px',
@@ -223,39 +221,34 @@ export const darkThemeOverrides = {
     primaryColorPressed: '#2C5FF0',
     primaryColorSuppl: '#6BA3F7',
     
-    // Dark mode background colors
-    bodyColor: '#0a0a0a', // Almost black
-    cardColor: '#171717', // neutral-900
-    modalColor: '#171717', // neutral-900
-    popoverColor: '#171717', // neutral-900
-    tableColor: '#171717', // neutral-900
-    
-    // Dark mode border colors
-    borderColor: '#404040', // neutral-700
-    dividerColor: '#404040', // neutral-700
-    
-    // Dark mode text colors
-    textColorBase: '#fafafa', // neutral-50
-    textColor1: '#fafafa', // neutral-50
-    textColor2: '#e5e5e5', // neutral-200
-    textColor3: '#a3a3a3', // neutral-400
-    textColorDisabled: '#737373', // neutral-500
-    
-    // Dark mode input colors
-    inputColor: '#262626', // neutral-800
-    inputColorDisabled: '#404040', // neutral-700
+    bodyColor: '#0a0a0a', 
+    cardColor: '#171717', 
+    modalColor: '#171717', 
+    popoverColor: '#171717', 
+    tableColor: '#171717', 
+        
+    borderColor: '#404040', 
+    dividerColor: '#404040', 
+        
+    textColorBase: '#fafafa',
+    textColor1: '#fafafa', 
+    textColor2: '#e5e5e5', 
+    textColor3: '#a3a3a3', 
+    textColorDisabled: '#737373', 
+      
+    inputColor: '#262626', 
+    inputColorDisabled: '#404040',
   },
   Button: {
     colorPrimary: '#4285F4',
     colorHoverPrimary: '#5A96F5',
     colorPressedPrimary: '#2C5FF0',
     textColorPrimary: '#ffffff',
-    
-    // Secondary button colors for dark mode
-    colorSecondary: '#262626', // neutral-800
-    colorHoverSecondary: '#404040', // neutral-700
-    colorPressedSecondary: '#525252', // neutral-600
-    textColorSecondary: '#e5e5e5', // neutral-200
+      
+    colorSecondary: '#262626', 
+    colorHoverSecondary: '#404040', 
+    colorPressedSecondary: '#525252',
+    textColorSecondary: '#e5e5e5', 
     
     heightMedium: '48px',
     borderRadiusMedium: '12px',
@@ -264,10 +257,10 @@ export const darkThemeOverrides = {
     rippleDuration: '.3s'
   },
   Input: {
-    color: '#262626', // neutral-800
+    color: '#262626', 
     colorFocus: '#262626',
-    textColor: '#fafafa', // neutral-50
-    placeholderColor: '#737373', // neutral-500
+    textColor: '#fafafa',
+    placeholderColor: '#737373',
     border: '1px solid #404040',
     borderHover: '1px solid #4285F4',
     borderFocus: '1px solid #4285F4',
@@ -278,13 +271,13 @@ export const darkThemeOverrides = {
     paddingMedium: '12px 14px'
   },
   Card: {
-    color: '#171717', // neutral-900
+    color: '#171717',
     borderRadius: '12px',
     borderColor: '#404040',
     boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3)',
   },
   Modal: {
-    color: '#171717', // neutral-900
+    color: '#171717',
     borderRadius: '12px',
     boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4)',
   },

@@ -166,9 +166,9 @@ export default defineComponent({
     const filteredData = computed(() => {
       if (!range.value || range.value.length !== 2) return props.data;
 
-      const [start, end] = range.value; 
+      const [start, end] = range.value;
       return props.data.filter((row) => {
-        const time = new Date(row.tanggal).getTime(); 
+        const time = new Date(row.tanggal).getTime();
         return time >= start && time <= end;
       });
     });

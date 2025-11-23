@@ -121,7 +121,7 @@
                 accept="image/*,.pdf, word, doc"
                 :default-file-list="fileList"
                 list-type="text"
-                 @change="handleUploadChange"
+                @change="handleUploadChange"
               >
                 <n-upload-dragger>
                   <div style="margin-bottom: 12px">
@@ -229,12 +229,17 @@
 
 <script setup>
 import { ref, onMounted, computed, defineProps } from "vue";
-import { PhFileArrowUp, PhMapPinArea, PhProhibit, PhSealCheck } from "@phosphor-icons/vue";
+import {
+  PhFileArrowUp,
+  PhMapPinArea,
+  PhProhibit,
+  PhSealCheck,
+} from "@phosphor-icons/vue";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import dayjs from "dayjs";
 import { useMessage } from "naive-ui";
-import Api from "@/services/Api";
+import Api from "@/services/Api.js";
 
 const map = ref(null);
 const loading = ref(false);
@@ -437,17 +442,16 @@ const handleUploadChange = ({ fileList: newFileList }) => {
   formData.value.upload_bukti = newFileList;
 };
 
-
 const handleIzinSakit = async () => {
   try {
     await formRef.value?.validate();
     loading.value = true;
 
-     const form = new FormData();
+    const form = new FormData();
     form.append("presensi_id", props.presensiAktif.presensi_id);
     form.append("jenis_kegiatan", formData.value.jenis_kegiatan);
     form.append("keterangan", formData.value.keterangan);
-    form.append("upload_bukti", fileList.value[0].file); 
+    form.append("upload_bukti", fileList.value[0].file);
 
     await Api.post("/presensi-siswa", form, {
       headers: {

@@ -125,11 +125,43 @@
         </p>
       </div>
     </div>
+    <div
+      v-if="showAlert"
+      class="fixed top-5 left-0 right-0 flex justify-center z-50 pointer-events-none"
+    >
+      <div class="pointer-events-auto">
+        <n-alert
+          title="✨ Demo Trial Account"
+          type="info"
+          closable
+          @close="showAlert = false"
+        >
+          <div class="space-y-2">
+            <div>
+              <div class="font-semibold">Superadmin</div>
+              <div>📧 Email: <strong>superadmin@mail.com</strong></div>
+              <div>🔒 Password: <strong>superadmin</strong></div>
+            </div>
+
+            <div class="h-px bg-gray-300 my-2 opacity-40"></div>
+
+            <div>
+              <div class="font-semibold">Siswa</div>
+              <div>
+                📧 Email: <strong>siswa{i}@sekolah.test</strong>, i = 1 sampai
+                30
+              </div>
+              <div>🔒 Password: <strong>password</strong></div>
+            </div>
+          </div>
+        </n-alert>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useMessage } from "naive-ui";
 import { useAuthStore } from "@/stores/Auth";
@@ -138,6 +170,7 @@ import { PhEye, PhEyeSlash, PhEnvelopeSimple } from "@phosphor-icons/vue";
 
 const router = useRouter();
 const message = useMessage();
+const showAlert = ref(true);
 const formRef = ref(null);
 const loading = ref(false);
 const themeStore = useThemeStore();
@@ -199,4 +232,10 @@ const handleLogin = async () => {
     loading.value = false;
   }
 };
+
+// onMounted(() => {
+//   setTimeout(() => {
+//     showAlert.value = false;
+//   }, 3000)
+// })
 </script>

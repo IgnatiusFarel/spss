@@ -31,7 +31,7 @@ import { useMessage } from "naive-ui";
 import Table from "./Table.vue";
 import TambahData from "./TambahData.vue";
 import EditData from "./EditData.vue";
-import Api from "@/services/Api";
+import Api from "@/services/Api.js";
 
 const views = { Table, TambahData, EditData };
 const currentView = shallowRef(Table);

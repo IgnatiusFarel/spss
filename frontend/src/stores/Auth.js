@@ -13,48 +13,41 @@ export const useAuthStore = defineStore("auth", () => {
   }
 
   const isAuthenticated = computed(() => {
-  return !!token.value && !isTokenExpired();
-});
-
+    return !!token.value && !isTokenExpired();
+  });
 
   async function login(credentials) {
     try {
       const response = await Api.post("/masuk", credentials);
-      
-      // Verify successful response
+
       if (!response.data.success) {
-        throw response.data.message || 'Login gagal';
-      }
-      
-      // Get data from correct structure
-      const { token: authToken, user: userData } = response.data.data;    
-      if (!authToken || !userData) {
-        throw 'Data tidak lengkap dari server';
+        throw response.data.message || "Login gagal";
       }
 
-      // Update state
+      const { token: authToken, user: userData } = response.data.data;
+      if (!authToken || !userData) {
+        throw "Data tidak lengkap dari server";
+      }
+
       token.value = authToken;
       user.value = userData;
 
-      // Set expiry date
       const expiryDate = new Date();
       expiryDate.setDate(expiryDate.getDate() + 7);
       tokenExpiry.value = expiryDate.toISOString();
 
-      // Store in localStorage
       localStorage.setItem("auth_token", authToken);
       localStorage.setItem("user", JSON.stringify(userData));
       localStorage.setItem("token_expiry", tokenExpiry.value);
 
       return response.data;
     } catch (error) {
-      // Handle different error types
       if (error.response) {
-        throw error.response.data.message || 'Login gagal';
-      } else if (typeof error === 'string') {
+        throw error.response.data.message || "Login gagal";
+      } else if (typeof error === "string") {
         throw error;
       } else {
-        throw error.message || 'Terjadi kesalahan';
+        throw error.message || "Terjadi kesalahan";
       }
     }
   }

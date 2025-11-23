@@ -24,7 +24,7 @@ import { NTag, NIcon, NSpin } from "naive-ui";
 import { useRoute, useRouter } from "vue-router";
 import { PhMagnifyingGlass, PhPlay } from "@phosphor-icons/vue";
 import Api from "@/services/Api.js";
-import { useThemeStore } from "@/stores/ThemeMode";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 
 export default defineComponent({
   name: "TableRiwayatPresensi",

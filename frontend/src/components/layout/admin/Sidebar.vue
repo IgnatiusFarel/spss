@@ -153,7 +153,7 @@ import {
 import { NAvatar, NDropdown, NModal, NImage, useMessage } from "naive-ui";
 import { storeToRefs } from "pinia";
 import { useAuthStore } from "@/stores/Auth.js";
-import { useThemeStore } from "@/stores/ThemeMode,js";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 
 const route = useRoute();
 const router = useRouter();

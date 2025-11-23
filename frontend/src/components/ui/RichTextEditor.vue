@@ -16,7 +16,7 @@
 import { ref, watch, onMounted } from "vue";
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
-import Api from "@/services/Api";
+import Api from "@/services/Api.js";
 import { useMessage } from "naive-ui";
 
 const props = defineProps({
@@ -88,7 +88,7 @@ onMounted(() => {
 const handlePromptIfAny = async () => {
   if (!quillRef.value) return;
 
-  const quill = quillRef.value; 
+  const quill = quillRef.value;
   const text = quill.getText().trimEnd();
   const match = text.match(/\/\/(.{3,})$/);
 

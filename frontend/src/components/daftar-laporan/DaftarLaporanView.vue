@@ -21,7 +21,7 @@
 
 <script setup>
 import Table from "./Table.vue";
-import Api from "@/services/Api";
+import Api from "@/services/Api.js";
 import { useMessage } from "naive-ui";
 import { onMounted, ref } from "vue";
 
@@ -53,11 +53,11 @@ const handleDelete = async () => {
   loading.value = true;
 
   try {
-    if (Array.isArray(deleteTarget.value)) {      
+    if (Array.isArray(deleteTarget.value)) {
       await Api.delete("/daftar-laporan", {
         data: { ids: deleteTarget.value },
       });
-    } else {      
+    } else {
       await Api.delete(`/daftar-laporan/${deleteTarget.value}`);
     }
     message.success("Data siswa berhasil dihapus!");

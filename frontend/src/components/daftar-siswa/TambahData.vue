@@ -295,8 +295,8 @@
 import { onMounted, ref, watch } from "vue";
 import { PhCaretDoubleLeft, PhFileArrowDown } from "@phosphor-icons/vue";
 import { useMessage } from "naive-ui";
-import { useThemeStore } from "@/stores/ThemeMode";
-import Api from "@/services/Api";
+import { useThemeStore } from "@/stores/ThemeMode.js";
+import Api from "@/services/Api.js";
 import dayjs from "dayjs";
 import { saveAs } from "file-saver";
 

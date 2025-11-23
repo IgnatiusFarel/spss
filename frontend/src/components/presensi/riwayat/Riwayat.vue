@@ -2,7 +2,7 @@
   <component
     :is="currentView"
     :loading="loading"
-    :data="dataTable"    
+    :data="dataTable"
     :detailData="detailData"
     :selectedRows="selectedRows"
     @back-to-table="showView('Table')"
@@ -48,14 +48,14 @@ const showView = (viewName) => {
 const showDetailData = async (data) => {
   try {
     loading.value = true;
-  
+
     const response = await Api.get(`/riwayat-presensi/${data.presensi_id}`);
-        
-      detailData.value = response.data.data.daftar_siswa;
-      showView('DetailData');    
+
+    detailData.value = response.data.data.daftar_siswa;
+    showView("DetailData");
   } catch (error) {
-    console.error('Error fetching detail:', error);
-    message.error('Data Detail Riwayat Gagal Diambil!');
+    console.error("Error fetching detail:", error);
+    message.error("Data Detail Riwayat Gagal Diambil!");
   } finally {
     loading.value = false;
   }
@@ -83,11 +83,11 @@ const handleDelete = async () => {
   loading.value = true;
 
   try {
-    if (Array.isArray(deleteTarget.value)) {      
+    if (Array.isArray(deleteTarget.value)) {
       await Api.delete("/riwayat-presensi", {
         data: { ids: deleteTarget.value },
       });
-    } else {      
+    } else {
       await Api.delete(`/riwayat-presensi/${deleteTarget.value}`);
     }
     message.success("Data riwayat presensi berhasil dihapus!");

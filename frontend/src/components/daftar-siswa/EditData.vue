@@ -178,7 +178,7 @@ import { defineComponent, onMounted, ref, watch } from "vue";
 import { PhCaretDoubleLeft } from "@phosphor-icons/vue";
 import Api from "@/services/Api.js";
 import { useMessage } from "naive-ui";
-import { useThemeStore } from "@/stores/ThemeMode,js";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 import dayjs from "dayjs";
 
 const loading = ref(false);

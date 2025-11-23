@@ -92,8 +92,8 @@ import {
   PhCaretUpDown,
   PhBell,
 } from "@phosphor-icons/vue";
-import { useAuthStore } from "@/stores/Auth";
-import { useThemeStore } from "@/stores/ThemeMode";
+import { useAuthStore } from "@/stores/Auth.js";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 import { storeToRefs } from "pinia";
 
 const router = useRouter();

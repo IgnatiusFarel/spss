@@ -33,8 +33,8 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 import { NTabs, NTabPane } from "naive-ui";
 import Presensi from "@/components/presensi/presensi/Presensi.vue";
 import Riwayat from "@/components/presensi/riwayat/Riwayat.vue";
-import Api from "@/services/Api";
-import { useThemeStore } from "@/stores/ThemeMode";
+import Api from "@/services/Api.js";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 
 const loading = ref(false);
 const currentDate = ref("");

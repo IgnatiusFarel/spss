@@ -31,7 +31,7 @@ import { useMessage } from "naive-ui";
 import Table from "./Table.vue";
 import TambahData from "./TambahData.vue";
 import EditData from "./EditData.vue";
-import Api from "@/services/Api";
+import Api from "@/services/Api.js";
 
 const views = { Table, TambahData, EditData };
 const currentView = shallowRef(Table);
@@ -62,11 +62,11 @@ const handleDelete = async () => {
   showModal.value = false;
   loading.value = true;
   try {
-    if (Array.isArray(deleteTarget.value)) {      
+    if (Array.isArray(deleteTarget.value)) {
       await Api.delete("/daftar-pengurus", {
         data: { ids: deleteTarget.value },
       });
-    } else {      
+    } else {
       await Api.delete(`/daftar-pengurus${deleteTarget.value}`);
     }
     message.success("Data pengurus berhasil dihapus!");

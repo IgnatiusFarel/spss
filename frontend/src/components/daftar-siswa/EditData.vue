@@ -1,6 +1,8 @@
 <template>
-  <div class="max-w-xl mx-auto p-6 min-h-screen transition-colors duration-300"
-       :class="themeStore.isDark ? 'bg-neutral-900' : 'bg-white'">
+  <div
+    class="max-w-xl mx-auto p-6 min-h-screen transition-colors duration-300"
+    :class="themeStore.isDark ? 'bg-neutral-900' : 'bg-white'"
+  >
     <n-button
       text
       type="primary"
@@ -14,12 +16,18 @@
       Kembali ke Halaman Daftar Siswa
     </n-button>
 
-     <div class="rounded-lg p-6 border transition-all duration-300"
-         :class="themeStore.isDark 
-           ? 'bg-neutral-800 border-neutral-700' 
-           : 'bg-white border-gray-200'">
-      <h1 class="text-3xl font-bold mb-8 text-center transition-colors duration-300"
-          :class="themeStore.isDark ? 'text-white' : 'text-gray-900'">
+    <div
+      class="rounded-lg p-6 border transition-all duration-300"
+      :class="
+        themeStore.isDark
+          ? 'bg-neutral-800 border-neutral-700'
+          : 'bg-white border-gray-200'
+      "
+    >
+      <h1
+        class="text-3xl font-bold mb-8 text-center transition-colors duration-300"
+        :class="themeStore.isDark ? 'text-white' : 'text-gray-900'"
+      >
         Edit Data Siswa
       </h1>
 
@@ -168,9 +176,9 @@
 <script setup>
 import { defineComponent, onMounted, ref, watch } from "vue";
 import { PhCaretDoubleLeft } from "@phosphor-icons/vue";
-import Api from "@/services/Api";
+import Api from "@/services/Api.js";
 import { useMessage } from "naive-ui";
-import { useThemeStore } from "@/stores/ThemeMode";
+import { useThemeStore } from "@/stores/ThemeMode,js";
 import dayjs from "dayjs";
 
 const loading = ref(false);

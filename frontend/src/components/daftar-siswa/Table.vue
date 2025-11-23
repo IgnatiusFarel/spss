@@ -1,10 +1,16 @@
 <template>
-  <h1 class="text-2xl font-bold mb-4 transition-colors duration-300"
-      :class="themeStore.isDark ? 'bg-neutral-900' : 'bg-gray-50'">Daftar Siswa</h1>  
-  <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-4">
+  <h1
+    class="text-2xl font-bold mb-4 transition-colors duration-300"
+    :class="themeStore.isDark ? 'bg-neutral-900' : 'bg-gray-50'"
+  >
+    Daftar Siswa
+  </h1>
+  <div
+    class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-4"
+  >
     <div class="flex gap-2">
       <n-button
-      type="primary"
+        type="primary"
         class="transition-transform transform active:scale-95"
         @click="$emit('add-data')"
       >
@@ -58,11 +64,17 @@
     @update:sorter="handleSorterChange"
     v-model:checked-row-keys="selectedRows"
   />
-
 </template>
 
 <script>
-import { defineComponent, reactive, ref, onMounted ,computed, watch} from "vue";
+import {
+  defineComponent,
+  reactive,
+  ref,
+  onMounted,
+  computed,
+  watch,
+} from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { NIcon, NButton } from "naive-ui";
 import {
@@ -71,7 +83,7 @@ import {
   PhPencilSimple,
   PhMagnifyingGlass,
 } from "@phosphor-icons/vue";
-import { useThemeStore } from "@/stores/ThemeMode";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 
 export default defineComponent({
   name: "TableSiswa",
@@ -79,34 +91,34 @@ export default defineComponent({
     data: {
       type: Array,
       default: () => [],
-       selectedRows: Array,
+      selectedRows: Array,
     },
     loading: {
       type: Boolean,
       default: false,
     },
-     selectedRows: {
-    type: Array,
-    default: () => [],
-  }
+    selectedRows: {
+      type: Array,
+      default: () => [],
+    },
   },
   setup(props, { emit }) {
     const loading = ref(true);
     const tableRef = ref(null);
-    const searchKeyword = ref('')
+    const searchKeyword = ref("");
     const selectedRows = ref([...props.selectedRows]);
-    const currentSortState = reactive({});      
+    const currentSortState = reactive({});
     const route = useRoute();
     const router = useRouter();
     const themeStore = useThemeStore();
-    
+
     const columns = reactive([
       { type: "selection", width: 50 },
       {
         title: "No",
         key: "created_at",
         width: 70,
-          sorter: (a, b) => new Date(b.created_at) - new Date(a.created_at),
+        sorter: (a, b) => new Date(b.created_at) - new Date(a.created_at),
         render(_, index) {
           return (pagination.page - 1) * pagination.pageSize + index + 1;
         },
@@ -117,7 +129,7 @@ export default defineComponent({
         width: 300,
         sorter: (a, b) => a.nama.localeCompare(b.nama),
       },
-     { title: "NIS", key: "nis", width: 150 },
+      { title: "NIS", key: "nis", width: 150 },
       { title: "NISN", key: "nisn", width: 150 },
       { title: "Jenis Kelamin", key: "jenis_kelamin", width: 110 },
       {
@@ -164,7 +176,7 @@ export default defineComponent({
       showSizePicker: true,
       pageSizes: [10, 25, 50, 100],
       prefix({ itemCount }) {
-        return `Total Jumlah Siswa: ${itemCount}`
+        return `Total Jumlah Siswa: ${itemCount}`;
       },
       onChange: (page) => {
         pagination.page = page;
@@ -178,13 +190,14 @@ export default defineComponent({
     });
 
     const filteredData = computed(() => {
-      if (!searchKeyword.value) return props.data 
+      if (!searchKeyword.value) return props.data;
 
       const keyword = searchKeyword.value.toLowerCase();
-      return props.data.filter(item => 
-        item.nama.toLowerCase().includes(keyword) ||
-        item.nis.toString().includes(keyword) || 
-        item.nisn.toString().includes(keyword)
+      return props.data.filter(
+        (item) =>
+          item.nama.toLowerCase().includes(keyword) ||
+          item.nis.toString().includes(keyword) ||
+          item.nisn.toString().includes(keyword)
       );
     });
 
@@ -192,10 +205,10 @@ export default defineComponent({
       Object.assign(currentSortState, sorter);
     };
 
-  const updateSelectedRows = (val) => {
-    selectedRows.value = val;
-    emit('update:selectedRows', val);
-  };
+    const updateSelectedRows = (val) => {
+      selectedRows.value = val;
+      emit("update:selectedRows", val);
+    };
 
     const handleEditSelected = () => {
       if (selectedRows.value.length === 1) {
@@ -212,9 +225,12 @@ export default defineComponent({
       }
     };
 
-       watch(() => props.selectedRows, (val) => {
-    selectedRows.value = [...val];
-  });
+    watch(
+      () => props.selectedRows,
+      (val) => {
+        selectedRows.value = [...val];
+      }
+    );
 
     onMounted(() => {
       setTimeout(() => {
@@ -232,8 +248,8 @@ export default defineComponent({
       tableRef,
       themeStore,
       pagination,
-      filteredData,  
-      selectedRows,   
+      filteredData,
+      selectedRows,
       searchKeyword,
       updateSelectedRows,
       handleSorterChange,

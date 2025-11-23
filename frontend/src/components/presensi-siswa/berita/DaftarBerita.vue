@@ -700,8 +700,8 @@
 
 <script setup>
 import { ref, onMounted, computed } from "vue";
-import Api from "@/services/Api";
-import { useAuthStore } from "@/stores/auth";
+import Api from "@/services/Api.js";
+import { useAuthStore } from "@/stores/Auth.js";
 import { useMessage } from "naive-ui";
 import {
   PhCalendarBlank,
@@ -711,7 +711,7 @@ import {
 } from "@phosphor-icons/vue";
 import dayjs from "dayjs";
 import "dayjs/locale/id";
-import { useThemeStore } from "@/stores/ThemeMode";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 
 const loading = ref(false);
 const message = useMessage();

@@ -1,4 +1,4 @@
-# **SPSS - Sistem Informasi Presensi Siswa SMA** 📦
+# **SPSS - Sistem Informasi Presensi Siswa SMA** 🏫
 
 > **Full-Stack Practice Project** </> 🤖 – Backend menggunakan **Laravel 10** & Frontend menggunakan **Vue 3**, dengan inspirasi desain UI diambil dari [Figma Community](https://www.figma.com/community/file/1263061341208887608/spps-sistem-pengelola-presensi-siswa) 🤝
 
@@ -152,7 +152,7 @@ Beberapa fitur utama:
 
 ### **5.8 Daftar Berita**
 
-![News List](images/Daftar%20Kelas.png)
+![News List](images/Daftar%20Berita.png)
 
 ### **5.9 Daftar Laporan**
 

@@ -164,8 +164,8 @@
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useMessage } from "naive-ui";
-import { useAuthStore } from "@/stores/Auth";
-import { useThemeStore } from "@/stores/ThemeMode";
+import { useAuthStore } from "@/stores/Auth.js";
+import { useThemeStore } from "@/stores/ThemeMode.js";
 import { PhEye, PhEyeSlash, PhEnvelopeSimple } from "@phosphor-icons/vue";
 
 const router = useRouter();
